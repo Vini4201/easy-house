@@ -1,0 +1,268 @@
+/* You can add global styles to this file, and also import other style files */
+/* .navbar {
+    background-color: rgb(28, 27, 27);
+    width: 100%;
+    height: 70px;
+}
+
+.logo {
+    margin-left: 430px;
+}
+
+.navbar-nav {
+    color: white;
+}
+
+.navbar-nav1 {
+    color: white;
+}
+
+.nav-item1 {
+    margin-top: 1%;
+    margin-left: 20px;
+    color: white;
+    font-size: xx-large;
+}
+
+.nav-item2 {
+    margin-top: -8%;
+    margin-left: -30px;
+    color: white;
+    font-size: x-large;
+}
+
+.nav-item3 {
+    margin-top: -3%;
+    margin-left: 15px;
+    color: white;
+} */
+
+/* .navbar-dark .navbar-nav .nav-link.custom-link {
+    color: #93a3bd;
+}
+
+.navbar-dark .navbar-nav .nav-link.custom-link:hover {
+    color: #5c6c9c;
+}
+
+.navbar-nav {
+    margin-left: 800px;
+} */
+
+/* spacing between the navbar items */
+/* .navbar-nav .nav-item {
+    margin-right: 30px;
+    font-size: 20px;
+}
+
+.navbar-nav .nav-item:last-child {
+    margin-right: 0;
+}
+
+.logo {
+    margin-top: -5px;
+    margin-left: 50px;
+} */
+
+/*------------------------------*/
+/* .nav-item4 {
+    margin-top: -3%;
+    margin-left: 150px;
+    color: white;
+}
+
+.nav-item5 {
+    margin-top: -3.2%;
+    margin-left: 300px;
+    color: white;
+}
+
+a.nav-link{
+    align-items: center;
+} */
+
+/* .btn1 {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: -150px;
+    margin-left: 1170px;
+    cursor: pointer;
+} */
+
+
+/* .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+    background-color: rgb(41, 41, 41);
+    text-align: center;
+    color: white;
+} */
+
+
+/*------------ BEFORE UI UPDATE ------------------*/
+/* :root{
+    --primary-color: #101820FF;
+    --secondary-color: #FEE715FF;
+  } */
+  
+  /*
+    background-color: var(--primary-color);
+  */
+  
+  
+  /* html{
+    height: 100%;
+  }
+  body{
+    font-family: Poppins;
+    position: relative;
+    margin: 0;
+    min-height: 100%;
+  } */
+
+
+/* You can add global styles to this file, and also import other style files */
+:root{
+    --primary-color: #101820FF;
+    --secondary-color: #FEE715FF;
+    --available-status-color: #0582ca;
+    --sold-status-color: #5d676e;
+    --payment-method-color: #00a6fb;
+    --no-items-color: #495057;
+    --add-to-cart-color: #ff9f1c;
+    --text-color: #FFFFFF;
+  }
+  
+  /*
+    background-color: var(--primary-color);
+  */
+  
+  html{
+    height: 100%;
+  }
+  body{
+    font-family: Poppins;
+    position: relative;
+    margin: 0;
+    min-height: 100%;
+  }
+  
+  .heading {
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  .align-right {
+    margin-left: 830px;
+  }
+  
+  .image {
+    max-width: 300px;
+  }
+  
+  .image-cell {
+    width: 1%;
+    white-space: nowrap;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 30px;
+    margin-left: -10px;
+    margin-top: -7px;
+  }
+  
+  .table th, .table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+  }
+  
+  .table th {
+    background-color: #adb5bd;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .table tr {
+    background-color: #f8f9fa;
+  }
+  
+  
+  .general-table {
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+  }
+  
+  .no-items p {
+    margin-top: 100px;
+    font-size: 30px;
+    text-align: center;
+    color: var(--no-items-color);
+  }
+  
+  .btn {
+    padding: 5px 10px;
+    font-size: 15px;
+  }
+  
+  .ml-2 {
+    margin-left: 10px;
+  }
+  
+  .available-status{
+    color: var(--available-status-color);
+    font-weight: 500;
+  }
+  .sold-status{
+    color: var(--sold-status-color);
+    font-weight: 500;
+  }
+  .payment-status{
+    color:  #FE9705;
+  }
+  .btn-add-to-cart-outline{
+    border-color: var(--add-to-cart-color);
+    color: var(--add-to-cart-color);
+  }
+  .btn-add-to-cart-outline:hover{
+    background-color: var(--add-to-cart-color);
+    color: var(--text-color);
+  }
+  .logo{
+    width: 165px;
+    height: 50px;
+  }
+  
+  
+  .btn-pills {
+    color: rgba(16, 24, 32);
+    border-radius: 8px;
+    padding: 10px 15px;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    margin: 5px;
+  }
+  
+  .btn-pills:hover {
+    background-color: rgba(16, 24, 32);
+    color: white;
+  }
+  
+  .btn-pills:active,
+  .nav-link.active {
+    background-color: rgba(16, 24, 32);
+    color: white !important;
+  }
+  
