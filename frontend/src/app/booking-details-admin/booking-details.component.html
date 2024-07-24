@@ -1,0 +1,65 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-12">
+      <h2 class="mb-4 text-center mt-2">Booking Details</h2>
+      <table class="table table-bordered w-100">
+        <tbody>
+          <tr>
+            <th>Order ID</th>
+            <td>{{ booking.orderId }}</td>
+          </tr>
+          <tr>
+            <th>Buyer ID</th>
+            <td>{{ booking.buyerId }}</td>
+          </tr>
+          <tr *ngIf="buyer">
+            <th>Buyer First Name</th>
+            <td>{{ buyer.firstName }}</td>
+          </tr>
+          <tr *ngIf="buyer">
+            <th>Buyer Last Name</th>
+            <td>{{ buyer.lastName }}</td>
+          </tr>
+          <tr *ngIf="buyer">
+            <th>Buyer Email</th>
+            <td>{{ buyer.email }}</td>
+          </tr>
+          <tr *ngIf="property">
+            <th>Property Name</th>
+            <td>{{ property.propertyName }}</td>
+          </tr>
+          <tr *ngIf="property">
+            <th>Property Cost</th>
+            <td>{{ property.propertyCost }}</td>
+          </tr>
+          <tr *ngIf="property">
+            <th>Property Address</th>
+            <td>{{ property.propertyAddress }}</td>
+          </tr>
+          <tr>
+            <th>Payment Method</th>
+            <td>{{ booking.paymentMethod }}</td>
+          </tr>
+          <tr>
+            <th>Payment Status</th>
+            <td>{{ booking.paymentStatus }}</td>
+          </tr>
+          <tr>
+            <th>Property Buy Date</th>
+            <td>{{ booking.propertyBuyDate }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="text-center mt-4">
+        <button class="btn btn-primary btn-lg" (click)="goToBookingList()">Back to Booking List</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<footer class="footer mt-auto py-3 bg-light">
+  <div class="container text-center">
+    <span>&copy; 2024 EasyHouse Portal. All rights reserved.</span>
+  </div>
+</footer>

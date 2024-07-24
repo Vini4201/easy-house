@@ -1,0 +1,50 @@
+<h2>Create Admin</h2>
+<form (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="firstName">First Name</label>
+    <input type="text" id="firstName" class="form-control" [(ngModel)]="user.firstName" name="firstName">
+  </div>
+
+  <div class="form-group">
+    <label for="lastName">Last Name</label>
+    <input type="text" id="lastName" class="form-control" [(ngModel)]="user.lastName" name="lastName">
+  </div>
+
+  <div class="form-group">
+    <label for="userName">Username</label>
+    <input type="text" id="userName" class="form-control" [(ngModel)]="user.userName" name="userName">
+  </div>
+
+  <div class="form-group">
+    <label for="phone">Phone</label>
+    <input type="text" id="phone" class="form-control" [(ngModel)]="user.phone" name="phone">
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" id="email" class="form-control" [(ngModel)]="user.email" name="email">
+  </div>
+
+  <div class="form-group">
+    <label for="userPassword">Password</label>
+    <input type="password" id="userPassword" class="form-control" [(ngModel)]="user.userPassword" name="userPassword">
+  </div>
+
+  <div class="form-group">
+    <label for="confirmPassword">Confirm Password</label>
+    <input type="password" id="confirmPassword" class="form-control" [(ngModel)]="user.confirmPassword" name="confirmPassword">
+  </div>
+
+  <div class="form-group">
+    <label for="address">Address</label>
+    <textarea id="address" class="form-control" [(ngModel)]="user.address" name="address"></textarea>
+  </div>
+
+  <!-- Hidden field for userRole -->
+  <div class="form-group" style="display: none;">
+    <label for="userRole">User Role</label>
+    <input type="text" id="userRole" class="form-control" [(ngModel)]="user.userRole" name="userRole" value="ADMIN">
+  </div>
+
+  <button type="submit" class="btn btn-success">Submit</button>
+</form>

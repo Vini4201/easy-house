@@ -1,0 +1,78 @@
+<div class="content">
+  <div class="form-container">
+    <div class="form-content">
+      <!-- <h3 class="form-heading">CREATE USER</h3> -->
+      <form (ngSubmit)="onSubmit()">
+
+        <div class="form-group">
+          <label for="userRole">Role</label>
+          <select id="userRole" class="form-control" [(ngModel)]="user.userRole" name="userRole">
+            <option value="ADMIN">Admin</option>
+            <option value="SELLER">Seller</option>
+            <option value="BUYER">Buyer</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="existingAdmin">Select Existing Admin</label>
+          <select id="existingAdmin" class="form-control" [(ngModel)]="selectedAdminId" (change)="fetchAdminData()" name="existingAdmin">
+            <option value="">-- Select an Admin --</option>
+            <option *ngFor="let admin of admins" [value]="admin.id">{{ admin.email }}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" class="form-control" [(ngModel)]="user.firstName" name="firstName">
+        </div>
+
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" class="form-control" [(ngModel)]="user.lastName" name="lastName">
+        </div>
+
+        <div class="form-group">
+          <label for="userName">Username</label>
+          <input type="text" id="userName" class="form-control" [(ngModel)]="user.userName" name="userName">
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input type="text" id="phone" class="form-control" [(ngModel)]="user.phone" name="phone">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" class="form-control" [(ngModel)]="user.email" name="email">
+        </div>
+
+        <div class="form-group">
+          <label for="address">Address</label>
+          <textarea id="address" class="form-control" [(ngModel)]="user.address" name="address"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="userPassword">Password</label>
+          <input type="password" id="userPassword" class="form-control" [(ngModel)]="user.userPassword" name="userPassword">
+        </div>
+
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" id="confirmPassword" class="form-control" [(ngModel)]="user.confirmPassword" name="confirmPassword">
+        </div>
+
+
+
+
+        <div class="button-container">
+          <button type="submit" class="btn btn-success">Submit</button>
+          <button type="button" class="btn btn-warning reset-btn text-white" (click)="onReset()">Reset</button>
+        </div>
+
+      </form>
+    </div>
+    <div class="design-element">
+      <img class="design-img" src="images/CreateUser.png" />
+    </div>
+  </div>
+</div>

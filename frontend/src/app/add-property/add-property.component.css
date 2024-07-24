@@ -1,0 +1,116 @@
+.content {
+    justify-content: center;
+    align-items: center;
+    margin-top: -80px;
+  }
+  
+  .form-container {
+    display: flex;
+    background-color: #dedede;
+    box-shadow: 2px 4px 4px 2px #00000040;
+    border-radius: 10px;
+    border-color: #000000;
+    transform: scale(0.70);
+    /* margin-top: -130px; */
+  }
+  
+  .form-content {
+    padding: 25px;
+    width: 55%;
+  }
+  
+  .design-element {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 45%;
+    background-color: #72809c;
+    /* background-color: #6d83b0; */
+    /* background-color: #6c757d; */
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  
+  .design-img {
+    max-width: 88%;
+    max-height: 88%;
+    margin-right: 20px;
+    margin-top: -30px;
+  }
+  
+  .form-heading {
+    font-family: "Allerta-Regular", monospace;
+    font-weight: 700;
+    color: #f6bc48;
+    font-size: 50px;
+    margin-top: -40px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    font-family: "Allerta-Regular", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #cccccc;
+    font-size: 16px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Space between buttons */
+    margin-top: 20px; /* Space above buttons */
+  }
+
+  .btn-success {
+    background-color: #3b4673;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-family: "Amiri-Bold", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-success:disabled {
+    background-color: #aaaaaa;
+    cursor: not-allowed;
+  }
+
+  .reset-btn {
+    background-color: #f0ad4e; 
+    border-color: #eea236;
+    padding: 10px 20px; 
+    font-size: 18px; 
+    border: none;
+    font-family: "Amiri-Bold", Helvetica;
+    font-weight: 700;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .text-danger {
+    color: #ff0000;
+    font-size: 14px;
+  }
+  
+  .alert {
+    margin-top: 20px;
+  }
+  

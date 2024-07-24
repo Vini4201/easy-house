@@ -1,0 +1,37 @@
+
+<!-- <h2 class="text-center my-4">Booking List</h2> -->
+
+<table class="mt-4 table general-table">
+  <thead class="thead-dark">
+    <tr>
+      <th>Order ID</th>
+      <th>Buyer ID</th>
+      <th>Property ID</th>
+      <th>Property Name</th>
+      <th>Property Cost</th>
+      <th>Payment Method</th>
+      <th>Payment Status</th>
+      <th>Property Buy Date</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let booking of bookings" class="text-center">
+      <td>{{ booking.orderId }}</td>
+      <td>{{ booking.buyerId }}</td>
+      <td>{{ booking.property.id }}</td>
+      <td>{{ booking.propertyName }}</td>
+      <td>{{ booking.propertyCost }}</td>
+      <td>{{ booking.paymentMethod }}</td>
+      <td>{{ booking.paymentStatus }}</td>
+      <td>{{ booking.propertyBuyDate | date: 'shortDate' }}</td>
+      <td class="text-center">
+        <div class="d-flex justify-content-center">
+        <button (click)="viewBookingDetails(booking.id)" class="btn btn-outline-primary btn-sm">View</button>
+        </div>
+        <!-- Add other action buttons if needed -->
+      </td>
+    </tr>
+  </tbody>
+</table>
+
