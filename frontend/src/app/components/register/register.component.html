@@ -1,0 +1,644 @@
+<div class="content">
+  <div class="form-container">
+    <div class="form-content">
+      <form [formGroup]="registerForm" (ngSubmit)="register()">
+
+        <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+
+        <div class="form-group">
+          <label for="firstName">First Name:</label>
+          <input type="text" id="firstName" class="form-control" formControlName="firstName" />
+          <div *ngIf="registerForm.get('firstName')?.invalid && registerForm.get('firstName')?.touched">
+            <small class="text-danger">First Name is required</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="lastName">Last Name:</label>
+          <input type="text" id="lastName" class="form-control" formControlName="lastName" />
+          <div *ngIf="registerForm.get('lastName')?.invalid && registerForm.get('lastName')?.touched">
+            <small class="text-danger">Last Name is required</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="userName">Username:</label>
+          <input type="text" id="userName" class="form-control" formControlName="userName" />
+          <div *ngIf="registerForm.get('userName')?.invalid && registerForm.get('userName')?.touched">
+            <small class="text-danger">User Name is required</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone No.:</label>
+          <input type="text" id="phone" class="form-control" formControlName="phone" />
+          <div *ngIf="registerForm.get('phone')?.invalid && registerForm.get('phone')?.touched">
+            <small class="text-danger" *ngIf="registerForm.get('phone')?.errors?.['invalidPhone']">Phone No. must be exactly 10 digits</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" class="form-control" formControlName="email" />
+          <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+            <small class="text-danger">Email is required</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="address">Address:</label>
+          <textarea id="address" class="form-control" formControlName="address"></textarea>
+          <div *ngIf="registerForm.get('address')?.invalid && registerForm.get('address')?.touched">
+            <small class="text-danger">Address is required</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="userRole">User Role:</label>
+          <select id="userRole" class="form-control" formControlName="userRole">
+            <option value="SELLER">Seller</option>
+            <option value="BUYER">Buyer</option>
+          </select>
+          <div *ngIf="registerForm.get('userRole')?.invalid && registerForm.get('userRole')?.touched">
+            <small class="text-danger">User Role is required</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="userPassword">Password:</label>
+          <input type="password" id="userPassword" class="form-control" formControlName="userPassword" />
+          <div *ngIf="registerForm.get('userPassword')?.errors?.['invalidPassword'] && registerForm.get('userPassword')?.touched">
+            <small class="text-danger">Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one symbol</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password:</label>
+          <input type="password" id="confirmPassword" class="form-control" formControlName="confirmPassword" />
+          <div *ngIf="registerForm.get('confirmPassword')?.invalid && registerForm.get('confirmPassword')?.touched">
+            <small class="text-danger">Confirm Password is required</small>
+          </div>
+          <div *ngIf="registerForm.errors?.['passwordMismatch'] && registerForm.get('confirmPassword')?.touched">
+            <small class="text-danger">Passwords do not match</small>
+          </div>
+        </div>
+
+        <div class="button-container">
+          <button type="submit" class="btn btn-success">REGISTER</button>
+          <!-- <button type="button" class="btn btn-warning reset-btn" (click)="onReset()">Reset</button> -->
+        </div>
+      </form>
+    </div>
+
+    <div class="design-element">
+      <img class="design-img" src="images/Register1.png" />
+      <div class="text-wrapper">Already have an account? <a routerLink="/easyhouse/login" routerLinkActive="active" class="nav-link">Login</a></div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- <div class="content">
+<div class="form-container">
+  <div class="rectangle"></div>
+  <div class="div"></div>
+  <div class="text-wrapper">Already have an account?</div>
+  <div class="group">
+    <div class="overlap-group">
+      <div class="rectangle-2"></div>
+      <div class="text-wrapper-2">
+        <a routerLink="/easyhouse/login" routerLinkActive="active" class="nav-link">LOGIN</a>
+      </div>
+    </div>
+  </div>
+  <form [formGroup]="registerForm" (ngSubmit)="register()">
+
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+    
+    <div class="input-group">
+      <label class="text-wrapper-4">First Name:</label>
+      <input class="rectangle-4" formControlName="firstName" />
+      <div *ngIf="registerForm.get('firstName')?.invalid && registerForm.get('firstName')?.touched">
+        <small class="text-danger-firstName">First Name is required</small>
+      </div>
+    </div>
+    <div class="input-group">
+      <label class="text-wrapper-5">Last Name:</label>
+      <input class="rectangle-5" formControlName="lastName" />
+      <div *ngIf="registerForm.get('lastName')?.invalid && registerForm.get('lastName')?.touched">
+        <small class="text-danger-lastName">Last Name is required</small>
+      </div>
+    </div>
+    <div class="input-group">
+      <label class="text-wrapper-6">Username:</label>
+      <input class="rectangle-6" formControlName="userName" />
+      <div *ngIf="registerForm.get('userName')?.invalid && registerForm.get('userName')?.touched">
+        <small class="text-danger-userName">User Name is required</small>
+      </div>
+    </div>
+    <div class="input-group">
+      <label class="text-wrapper-7">Phone No.:</label>
+      <input class="rectangle-7" formControlName="phone" />
+      <div *ngIf="registerForm.get('phone')?.invalid && registerForm.get('phone')?.touched"> -->
+        <!-- <small class="text-danger-phone">Phone No. is required</small> -->
+        <!-- <small class="text-danger-phone" *ngIf="registerForm.get('phone')?.errors?.['invalidPhone']">Phone No. must be exactly 10 digits</small>
+      </div>
+    </div>
+    <div class="input-group">
+      <label class="text-wrapper-8">Email:</label>
+      <input class="rectangle-8" formControlName="email" />
+      <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+        <small class="text-danger-email">Email is required</small>
+      </div>
+    </div>
+    <div class="input-group">
+      <label class="text-wrapper-9">Address:</label>
+      <input class="rectangle-9" formControlName="address" />
+      <div *ngIf="registerForm.get('address')?.invalid && registerForm.get('address')?.touched">
+        <small class="text-danger-address">Address is required</small>
+      </div>
+    </div>
+    <div class="input-group">
+      <label class="text-wrapper-10">User Role:</label>
+      <select id="userRole" class="rectangle-10" formControlName="userRole">
+        <option value="SELLER">Seller</option>
+        <option value="BUYER">Buyer</option>
+      </select>
+      <div *ngIf="registerForm.get('userRole')?.invalid && registerForm.get('userRole')?.touched">
+        <small class="text-danger-userRole">User Role is required</small>
+      </div>
+    </div>
+    <div class="input-group">
+      <label class="text-wrapper-11">Password:</label>
+      <input class="rectangle-11" formControlName="userPassword" type="password" /> -->
+      <!-- <div *ngIf="registerForm.get('userPassword')?.invalid && registerForm.get('userPassword')?.touched">
+        <small class="text-danger-password">Password is required</small>
+      </div> -->
+      <!-- <div *ngIf="registerForm.get('userPassword')?.errors?.['invalidPassword'] && registerForm.get('userPassword')?.touched">
+        <small class="text-danger-password">Password must be at least 8 characters long and include at least one uppercase <br> letter, one lowercase letter, one number, and one symbol</small>
+      </div>
+    </div>
+    <div class="input-group">
+      <label class="text-wrapper-12">Confirm <br> Password:</label>
+      <input class="rectangle-3" formControlName="confirmPassword" type="password" />
+      <div *ngIf="registerForm.get('confirmPassword')?.invalid && registerForm.get('confirmPassword')?.touched">
+        <small class="text-danger-confirmPassword">Confirm Password is required</small>
+      </div>
+      <div *ngIf="registerForm.errors?.['passwordMismatch'] && registerForm.get('confirmPassword')?.touched">
+        <small class="text-danger-confirmPassword">Passwords do not match</small>
+      </div>
+    </div>
+
+    <div class="overlap-group-wrapper">
+      <div class="div-wrapper">
+        <button type="submit" class="div-wrapper">REGISTER</button>
+      </div>
+    </div>
+  </form>
+  <img class="registration scaled-image" src="images/Registration.png" />
+</div>
+</div> -->
+
+
+
+
+
+<!---------------------- WORKING WITH BOOTSTRAP UI --------------------->
+
+<!-- <div class="col-md-6 offset-md-3">
+  <li class="nav-item2"><a routerLink="/easyhouse/login" routerLinkActive="active" class="nav-link">Login</a></li>
+    <h2>Register</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+      <div>
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" class="form-control" formControlName="firstName">
+        <div *ngIf="registerForm.get('firstName')?.invalid && registerForm.get('firstName')?.touched">
+          <small class="text-danger">First Name is required</small>
+        </div>
+      </div>
+      <div>
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" class="form-control" formControlName="lastName">
+        <div *ngIf="registerForm.get('lastName')?.invalid && registerForm.get('lastName')?.touched">
+          <small class="text-danger">Last Name is required</small>
+        </div>
+      </div>
+      <div>
+        <label for="userName">Username:</label>
+        <input type="text" id="userName" class="form-control" formControlName="userName">
+        <div *ngIf="registerForm.get('userName')?.invalid && registerForm.get('userName')?.touched">
+          <small class="text-danger">User Name is required</small>
+        </div>
+      </div>
+      <div>
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" class="form-control" formControlName="phone">
+        <div *ngIf="registerForm.get('phone')?.invalid && registerForm.get('phone')?.touched">
+          <small class="text-danger">Phone No. is required</small>
+        </div>
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" class="form-control" formControlName="email">
+        <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+          <small class="text-danger">Email ID is required</small>
+        </div>
+      </div> -->
+      <!-- <div>
+        <label for="userPassword">Password:</label>
+        <input type="password" id="userPassword" class="form-control" formControlName="userPassword">
+        <div *ngIf="registerForm.get('userPassword')?.invalid && registerForm.get('userPassword')?.touched">
+          <small class="text-danger">Password is required</small>
+        </div>
+      </div>
+      <div>
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" class="form-control" formControlName="confirmPassword">
+        <div *ngIf="registerForm.get('confirmPassword')?.invalid && registerForm.get('confirmPassword')?.touched">
+          <small class="text-danger">Confirm Password is required</small>
+        </div>
+      </div> -->
+      <!-- <div>
+        <label for="address">Address:</label>
+        <input type="text" id="address" class="form-control" formControlName="address">
+        <div *ngIf="registerForm.get('address')?.invalid && registerForm.get('address')?.touched">
+          <small class="text-danger">Address is required</small>
+        </div>
+      </div>
+      <div>
+        <label for="userRole">Role:</label>
+        <select id="userRole" class="form-control" formControlName="userRole">
+          <option value="SELLER">Seller</option>
+          <option value="BUYER">Buyer</option>
+        </select>
+        <div *ngIf="registerForm.get('userRole')?.invalid && registerForm.get('userRole')?.touched">
+          <small class="text-danger">User Role is required</small>
+        </div>
+      </div>
+
+      <div>
+        <label for="userPassword">Password:</label>
+        <input type="password" id="userPassword" class="form-control" formControlName="userPassword">
+        <div *ngIf="registerForm.get('userPassword')?.invalid && registerForm.get('userPassword')?.touched">
+          <small class="text-danger">Password is required</small>
+        </div>
+      </div>
+      <div>
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" class="form-control" formControlName="confirmPassword">
+        <div *ngIf="registerForm.get('confirmPassword')?.invalid && registerForm.get('confirmPassword')?.touched">
+          <small class="text-danger">Confirm Password is required</small>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Register</button>
+      <div *ngIf="errorMessage">{{ errorMessage }}</div>
+    </form>
+  </div> -->
+  
+  
+  
+  
+  <!---------------  WORKING --------------->
+  
+  <!-- <div class="col-md-6 offset-md-3">
+    <h2>Register</h2>
+  <form (ngSubmit)="register()" #registerForm="ngForm">
+    <div>
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" class="form-control" name="firstName" [(ngModel)]="user.firstName" required>
+      <div *ngIf="registerForm.get('firstName')?.invalid && registerForm.get('firstName')?.touched">
+        <small class="text-danger">First Name is required</small>
+    </div>
+    <div>
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" class="form-control" name="lastName" [(ngModel)]="user.lastName" required>
+      <div *ngIf="registerForm.get('lastName')?.invalid && registerForm.get('lastName')?.touched">
+        <small class="text-danger">Last Name is required</small>
+    </div>
+    <div>
+      <label for="userName">Username:</label>
+      <input type="text" id="userName" class="form-control" name="userName" [(ngModel)]="user.userName" required>
+      <div *ngIf="registerForm.get('userName')?.invalid && registerForm.get('userName')?.touched">
+        <small class="text-danger">User Name is required</small>
+    </div>
+    <div>
+      <label for="phone">Phone:</label>
+      <input type="text" id="phone" class="form-control" name="phone" [(ngModel)]="user.phone" required>
+      <div *ngIf="registerForm.get('phone')?.invalid && registerForm.get('phone')?.touched">
+        <small class="text-danger">Phone No. is required</small>
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" class="form-control" name="email" [(ngModel)]="user.email" required>
+      <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+        <small class="text-danger">Email ID is required</small>
+    </div>
+    <div>
+      <label for="userPassword">Password:</label>
+      <input type="password" id="userPassword" class="form-control" name="userPassword" [(ngModel)]="user.userPassword" required>
+      <div *ngIf="registerForm.get('userPassword')?.invalid && registerForm.get('userPassword')?.touched">
+        <small class="text-danger">Password is required</small>
+    </div>
+    <div>
+      <label for="confirmPassword">Confirm Password:</label>
+      <input type="password" id="confirmPassword" class="form-control" name="confirmPassword" [(ngModel)]="user.confirmPassword" required>
+      <div *ngIf="registerForm.get('confirmPassword')?.invalid && registerForm.get('confirmPassword')?.touched">
+        <small class="text-danger">Password is required</small>
+    </div>
+    <div>
+      <label for="address">Address:</label>
+      <input type="text" id="address" class="form-control" name="address" [(ngModel)]="user.address" required>
+      <div *ngIf="registerForm.get('address')?.invalid && registerForm.get('address')?.touched">
+        <small class="text-danger">Address is required</small>
+    </div>
+    <div>
+      <label for="userRole">Role:</label>
+      <select id="userRole" class="form-control" name="userRole" [(ngModel)]="user.userRole" required> -->
+        <!-- <option value="ADMIN">Admin</option> -->
+        <!-- <option value="SELLER">Seller</option>
+        <option value="BUYER">Buyer</option>
+      </select>
+      <div *ngIf="registerForm.get('userRole')?.invalid && registerForm.get('userRole')?.touched">
+        <small class="text-danger">User Role is required</small>
+    </div>
+    <button type="submit" class="btn btn-primary">Register</button>
+    <div *ngIf="errorMessage">{{ errorMessage }}</div>
+  </form>
+  </div> -->
+  
+  
+  
+  <!-- <div class="col-md-6 offset-md-3">
+    <h2>Register</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" class="form-control" formControlName="firstName" placeholder="Enter First Name">
+        <div *ngIf="registerForm.get('firstName')?.invalid && registerForm.get('firstName')?.touched">
+          <small class="text-danger">First Name is required</small>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" id="lastName" class="form-control" formControlName="lastName" placeholder="Enter Last Name">
+        <div *ngIf="registerForm.get('lastName')?.invalid && registerForm.get('lastName')?.touched">
+          <small class="text-danger">Last Name is required</small>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="userName">User Name</label>
+        <input type="text" id="userName" class="form-control" formControlName="userName" placeholder="Enter User Name">
+        <div *ngIf="registerForm.get('userName')?.invalid && registerForm.get('userName')?.touched">
+          <small class="text-danger">User Name is required</small>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="phone">Phone No.</label>
+        <input type="number" id="phone" class="form-control" formControlName="phone" placeholder="Enter Phone Number">
+        <div *ngIf="registerForm.get('phone')?.invalid && registerForm.get('phone')?.touched">
+          <small class="text-danger">Phone No. is required</small>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="email">Email ID</label>
+        <input type="email" id="email" class="form-control" formControlName="email" placeholder="Enter Email ID">
+        <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+          <small class="text-danger">Email ID is required</small>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="userPassword">Password</label>
+        <input type="password" id="userPassword" class="form-control" formControlName="userPassword" placeholder="Enter Password">
+        <div *ngIf="registerForm.get('userPassword')?.invalid && registerForm.get('userPassword')?.touched">
+          <small class="text-danger">Password is required</small>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="password" class="form-control" formControlName="confirmPassword" placeholder="Confirm Password">
+        <div *ngIf="registerForm.get('confirmPassword')?.invalid && registerForm.get('confirmPassword')?.touched">
+          <small class="text-danger">Password is required</small>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input type="text" id="address" class="form-control" formControlName="address" placeholder="Enter Address">
+        <div *ngIf="registerForm.get('address')?.invalid && registerForm.get('address')?.touched">
+          <small class="text-danger">Address is required</small>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="userRole">User Role</label>
+        <select id="userRole" class="form-control" formControlName="userRole">
+          <option value="BUYER">Buyer</option>
+          <option value="SELLER">Seller</option>
+        </select>
+      </div>
+  
+  
+      <button type="submit" class="btn btn-primary" [disabled]="!registerForm.valid">Register</button>
+    </form>
+  </div> -->
+  
+  
+  
+  <!------------- TRIAL -------------->
+  <!-- <div class="col-md-6 offset-md-3"> 
+    <h3> Register </h3>
+    <form (ngSubmit)="onSubmit()">
+  
+        <div class="form-group">
+            <label> First Name </label>
+            <input type="text" class="form-control" id="firstName" [(ngModel)]="user.firstName" name="firstName" required>
+        </div>
+  
+        <div class="form-group">
+            <label> Last Name </label>
+            <input type="text" class="form-control" id="lastName" [(ngModel)]="user.lastName" name="lastName" required>
+        </div>
+    
+        <div class="form-group">
+            <label> User Name </label>
+            <input type="text" class="form-control" id="userName" [(ngModel)]="user.userName" name="userName" required>
+        </div>
+    
+        <div class="form-group">
+            <label> Phone Number </label>
+            <input type="number" class="form-control" id="phone" [(ngModel)]="user.phone" name="phone" required>
+        </div>
+  
+        <div class="form-group">
+            <label> Email ID </label>
+            <input type="email" class="form-control" id="email" [(ngModel)]="user.email" name="email" required>
+        </div>
+  
+        <div class="form-group">
+            <label> Password </label>
+            <input type="password" class="form-control" id="userPassword" [(ngModel)]="user.userPassword" name="userPassword" required>
+        </div>
+    
+        <div class="form-group">
+            <label> Confirm Password </label>
+            <input type="password" class="form-control" id="confirmPassword" [(ngModel)]="user.confirmPassword" name="confirmPassword">
+        </div>
+  
+        <div class="form-group">
+            <label> Address </label>
+            <input type="text" class="form-control" id="address" [(ngModel)]="user.address" name="address">
+        </div>
+  
+        <div class="form-group">
+            <label> User Role </label>
+            <select class="form-control" id="userRole" [(ngModel)]="user.userRole" name="userRole">
+                <option value="SELLER">Seller</option>
+                <option value="BUYER">Buyer</option>
+            </select>
+        </div>
+    
+        <button class="btn btn-success" type="submit"> Submit </button>
+    
+    </form>
+  </div> -->
+  
+  
+  
+  
+  <!-- BASIC WORKING -->
+  
+  <!-- <div class="col-md-6 offset-md-3">
+    <h2>Register</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" class="form-control" formControlName="firstName" placeholder="Enter First Name">
+      </div>
+  
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" id="lastName" class="form-control" formControlName="lastName" placeholder="Enter Last Name">
+      </div>
+  
+      <div class="form-group">
+        <label for="userName">User Name</label>
+        <input type="text" id="userName" class="form-control" formControlName="userName" placeholder="Enter User Name">
+      </div>
+  
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="number" id="phone" class="form-control" formControlName="phone" placeholder="Enter Phone Number">
+      </div>
+  
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" class="form-control" formControlName="email" placeholder="Enter Email">
+      </div>
+  
+      <div class="form-group">
+        <label for="userPassword">Password</label>
+        <input type="password" id="userPassword" class="form-control" formControlName="userPassword" placeholder="Enter Password">
+      </div>
+  
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" class="form-control" formControlName="confirmPassword" placeholder="Confirm Password">
+      </div>
+  
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input type="text" id="address" class="form-control" formControlName="address" placeholder="Enter Address">
+      </div>
+  
+      <div class="form-group">
+        <label for="userRole">User Role</label>
+        <select id="userRole" class="form-control" formControlName="userRole">
+          <option value="BUYER">Buyer</option>
+          <option value="SELLER">Seller</option>
+        </select>
+      </div>
+  
+      <button type="submit" class="btn btn-primary" [disabled]="!registerForm.valid">Register</button>
+    </form>
+  </div> -->
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <!-- <div class="col-md-6 offset-md-3"> 
+    <h3> Register </h3>
+    <form (ngSubmit)="onSubmit()" method="post" action="javascript:void(0)">
+  
+        <div class="form-group">
+          <label> First Name </label>
+          <input type="text" class="form-control" [(ngModel)]="user.firstName" name="firstName" required>
+        </div>
+  
+        <div class="form-group">
+          <label> Last Name </label>
+          <input type="text" class="form-control" [(ngModel)]="user.lastName" name="lastName" required>
+        </div>
+  
+        <div class="form-group">
+            <label> Username </label>
+            <input type="text" class="form-control" [(ngModel)]="user.userName" name="userName" required>
+        </div>
+  
+        <div class="form-group">
+          <label> Phone </label>
+          <input type="text" class="form-control" [(ngModel)]="user.phone" name="phone" required>
+        </div>
+  
+        <div class="form-group">
+          <label> Email </label>
+          <input type="text" class="form-control" [(ngModel)]="user.email" name="email" required>
+        </div>
+  
+        <div class="form-group">
+            <label> Password </label>
+            <input type="password" class="form-control" [(ngModel)]="user.userPassword" name="password" required>
+        </div>
+  
+        <div class="form-group">
+          <label> Confirm Password </label>
+          <input type="text" class="form-control" [(ngModel)]="user.confirmPassword" name="confirmPassword" required>
+        </div>
+  
+        <div class="form-group">
+          <label> Address </label>
+          <input type="text" class="form-control" [(ngModel)]="user.address" name="address" required>
+      </div>
+  
+      <div class="form-group">
+        <label> User Role </label>
+        <select class="form-control" id="userRole" [(ngModel)]="user.userRole" name="userRole">
+            <option value="Available">Buyer</option>
+            <option value="Sold">Seller</option>
+        </select>
+      </div>
+  
+        <button class="btn btn-success" type="submit"> Register </button>
+  
+    </form>
+  </div> -->
+  
+  
+  

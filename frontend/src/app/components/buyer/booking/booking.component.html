@@ -1,0 +1,53 @@
+<div *ngIf="bookings.length > 0">
+  <!-- <h2 class="text-center">Bookings</h2>P -->
+  <div class="row">
+    <div class="col-md-12">
+      <table class="mt-2 table general-table">
+        <thead>
+          <tr>
+            <th>Order Id</th>
+            <th>Seller Details</th>
+            <th>Property Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let bookingObj of bookings">
+            <tr *ngIf="bookingObj.booking && bookingObj.sellerDetails">
+              <!-- Order Id column -->
+              <td class="text-center"><strong>{{ bookingObj.booking.orderId }}</strong></td>
+              <!-- Seller Details -->
+              <td class="seller-details">
+                <ul>
+                  <li>Seller Name: {{ bookingObj.sellerDetails.firstName }} {{ bookingObj.sellerDetails.lastName }}</li>
+                  <li>Seller Email: {{ bookingObj.sellerDetails.email }}</li>
+                  <li>Seller Phone: {{ bookingObj.sellerDetails.phone }}</li>
+                </ul>
+              </td>
+              <!-- Property Details -->
+              <td>
+                <ul>
+                  <li>Property Name: {{ bookingObj.booking.property?.propertyName }}</li>
+                  <li>Property Cost: {{ bookingObj.booking.property?.propertyCost }}</li>
+                  <li>Payment Method: {{ bookingObj.booking.paymentMethod }}</li>
+                  <li>Payment Status: <span class="payment-status">{{ bookingObj.booking.paymentStatus }}</span></li>
+                  <li>Property Buy Date: {{ bookingObj.booking.propertyBuyDate }}</li>
+                </ul>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="bookings.length === 0" class="no-items">
+  <p>No bookings have been made yet.</p>
+</div>
+
+<!-- Footer -->
+<footer class="footer mt-auto py-3 bg-light">
+  <div class="container text-center">
+    <span>&copy; 2024 EasyHouse Portal. All rights reserved.</span>
+  </div>
+</footer>

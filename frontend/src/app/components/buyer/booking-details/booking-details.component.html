@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div *ngIf="booking" class="card shadow p-4">
+        <h2 class="mb-4 text-center mt-2">Booking Details</h2>
+        <div class="mb-3">
+          <p class="mb-2"><strong>Order ID:</strong> {{ booking.orderId }}</p>
+          <p class="mb-2"><strong>Buyer ID:</strong> {{ booking.buyerId }}</p>
+          <div *ngIf="buyer">
+            <p class="mb-2"><strong>Buyer First Name:</strong> {{ buyer.firstName }}</p>
+            <p class="mb-2"><strong>Buyer Last Name:</strong> {{ buyer.lastName }}</p>
+            <p class="mb-2"><strong>Buyer Email:</strong> {{ buyer.email }}</p>
+          </div>
+          <div *ngIf="property">
+            <p class="mb-2"><strong>Property Name:</strong> {{ property.propertyName }}</p>
+            <p class="mb-2"><strong>Property Cost:</strong> {{ property.propertyCost }}</p>
+            <p class="mb-2"><strong>Property Address:</strong> {{ property.propertyAddress }}</p>
+          </div>
+          <p class="mb-2"><strong>Payment Method:</strong> {{ booking.paymentMethod }}</p>
+          <p class="mb-2"><strong>Payment Status:</strong> {{ booking.paymentStatus }}</p>
+          <p class="mb-2"><strong>Property Buy Date:</strong> {{ booking.propertyBuyDate }}</p>
+        </div>
+        <div class="text-center">
+          <button class="btn btn-primary btn-lg" (click)="goToBookingList()">Back to Booking List</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Footer -->
+<footer class="footer mt-auto py-3 bg-light">
+  <div class="container text-center">
+    <span>&copy; 2024 EasyHouse Portal. All rights reserved.</span>
+  </div>
+</footer>

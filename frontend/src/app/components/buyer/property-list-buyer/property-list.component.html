@@ -1,0 +1,105 @@
+<div class="property-list">
+  <!-- <h2 class="text-center">All Properties</h2> -->
+  <div class="row">
+    <div class="col-md-12">
+      <!-- Display Available Properties -->
+  <div *ngIf="filterPropertiesByStatus('AVAILABLE').length > 0">
+    <table class="mt-2 table general-table">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Details</th>
+          <th>Address</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let property of filterPropertiesByStatus('AVAILABLE')">
+          <td class="image-cell">
+            <img [src]="property.propertyImageUrl" alt="Property Image" class="image img-fluid rounded-start">
+          </td>
+          <td class="details-cell">
+            <ul>
+              <li>Name: {{ property.propertyName }}</li>
+              <li>Type: {{ property.propertyType }}</li>
+              <li>Area: {{ property.propertyArea }}</li>
+              <li>Cost: {{ property.propertyCost }}</li>
+            </ul>
+          </td>
+          <td class="address-cell">
+            <ul>
+              <li>Address: {{ property.propertyAddress }}</li>
+              <li>Description: {{ property.propertyDescription }}</li>
+              <li>Status: <span class="available-status">  {{ property.propertyStatus }} </span></li>
+              <li>Date of Publish: {{ property.propertyPostDate }}</li>
+            </ul>
+          </td>
+          <td class="text-center">
+            <div class="d-flex justify-content-center">
+              <!-- Your action buttons here -->
+              <button class="btn btn-outline-primary" [routerLink]="['/easyhouse/buyer-home', buyerId, 'properties', property.id]">View</button>
+              <button *ngIf="!isAdminUser && property.propertyStatus === 'AVAILABLE'" class="btn btn-add-to-cart-outline ml-2" (click)="addToCart(property)">Add to Cart</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Display Sold properties -->
+  <div *ngIf="filterPropertiesByStatus('SOLD').length > 0">
+    <table class="mt-2 table general-table">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Details</th>
+          <th>Address</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let property of filterPropertiesByStatus('SOLD')">
+          <td class="image-cell">
+            <img [src]="property.propertyImageUrl" alt="Property Image" class="image img-fluid rounded-start">
+          </td>
+          <td class="details-cell">
+            <ul>
+              <li>Name:{{ property.propertyName }}</li>
+              <li>Type: {{ property.propertyType }}</li>
+              <li>Area: {{ property.propertyArea }}</li>
+              <li>Cost: {{ property.propertyCost }}</li>
+            </ul>
+          </td>
+          <td class="address-cell">
+            <ul>
+              <li>Address: {{ property.propertyAddress }}</li>
+              <li>Description:{{ property.propertyDescription }}</li>
+              <li>Status: <span class="sold-status">{{ property.propertyStatus }}</span></li>
+              <li>Date of Publish: {{ property.propertyPostDate }}</li>
+            </ul>
+          </td>
+          <td class="text-center">
+            <div class="d-flex justify-content-center">
+              <button class="btn btn-primary" [routerLink]="['/easyhouse/buyer-home', buyerId, 'properties', property.id]">View</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Display message if no properties available -->
+  <div *ngIf="filterPropertiesByStatus('AVAILABLE').length === 0 && filterPropertiesByStatus('SOLD').length === 0" class="no-items">
+    <p>No properties have been added yet.</p>
+  </div>
+</div>
+    </div>
+  </div>
+
+
+<!-- Footer -->
+<footer class="footer mt-auto py-3 bg-light">
+  <div class="container text-center">
+    <span>&copy; 2024 EasyHouse Portal. All rights reserved.</span>
+  </div>
+</footer>

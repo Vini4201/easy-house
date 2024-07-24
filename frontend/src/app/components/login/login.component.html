@@ -1,0 +1,216 @@
+<div class="content">
+  <div class="form-container">
+    <div class="design-element">
+      <img class="design-img" src="images/Login2.png" />
+      <div class="text-wrapper">New User? <a routerLink="/easyhouse/register" routerLinkActive="active" class="nav-link">Register</a></div>
+    </div>
+
+    <div class="form-content">
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+
+        <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+
+        <div class="form-group">
+          <label for="email">Email ID:</label>
+          <input type="email" id="email" class="form-control" formControlName="email" />
+          <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+            <small class="text-danger">Valid email is required</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" class="form-control" formControlName="password" />
+          <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+            <small class="text-danger">Password is required</small>
+          </div>
+        </div>
+
+        <div class="button-container">
+          <button type="submit" class="btn btn-success">LOGIN</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- <div class="content">
+  <form [formGroup]="loginForm" class="overlap">
+  <div>   -->
+    <!-- <div class="rectangle"></div> -->
+    <!-- <label class="text-wrapper" for="email">Email ID:</label>
+    <input type="email" id="email" class="rectangle form-control" formControlName="email" />
+    <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+      <small class="text-danger-email">Valid email is required</small>
+    </div>
+    </div>
+    <div>
+  <label class="div" for="password">Password:</label>
+  <input type="password" id="password" class="rectangle-3 form-control" formControlName="password" />
+  <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+    <small class="text-danger-password">Password is required</small>
+  </div>
+  </div>
+
+  <div class="overlap-group">
+    <div class="group">
+      <div class="overlap-group-2">
+        <div class="rectangle-2"></div>
+        <div class="text-wrapper-2">
+          <a routerLink="/easyhouse/register" routerLinkActive="active" class="nav-link">REGISTER</a>
+        </div>
+      </div>
+    </div>
+    <div class="text-wrapper-3">New User?</div>
+    <img class="img" src="images/Login1.png" />
+  </div>
+
+  <div class="overlap-group-wrapper">
+    <button type="submit" class="overlap-2 btn btn-primary" (click)="login()"> -->
+      <!-- <div class="rectangle-4"></div> -->
+      <!-- <div class="text-wrapper-4">LOGIN</div>
+    </button>
+  </div>
+  <div *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</div>
+</form>
+</div> -->
+
+<!-- <div class="login-container">
+  <div class="overlap">
+    <div class="rectangle"></div>
+    <div class="text-wrapper">Email ID:</div>
+    <div class="div">Password:</div>
+    <div class="overlap-group">
+      <div class="group">
+        <div class="overlap-group-2">
+          <div class="rectangle-2"></div>
+          <div class="text-wrapper-2">
+            <a routerLink="/easyhouse/register" routerLinkActive="active" class="register-link">REGISTER</a>
+          </div>
+        </div>
+      </div>
+      <div class="text-wrapper-3">New User?</div>
+      <img src="images/Login1.png" class="img" alt="Login Image" />
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <div class="form-group">
+        <div class="rectangle"></div>
+        <div class="text-wrapper" for="email">Email:</div>
+        <input class="rectangle" type="email" id="email" formControlName="email" />
+        <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+          <small class="text-danger">Valid email is required</small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="div" for="email">Password:</label>
+        <input class="rectangle-3" type="password" id="password" formControlName="password" />
+        <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+          <small class="text-danger">Password is required</small>
+        </div>
+      </div>
+      <div class="overlap-group-wrapper">
+        <div class="overlap-2">
+          <div class="rectangle-4">
+          <button type="submit" class="rectangle-4">LOGIN</button>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</div>
+    </form>
+  </div>
+</div> -->
+
+
+<!------------------------ CORRECT WORKING WITH BOOTSTRAP UI -------------------->
+
+<!-- <div class="col-md-6 offset-md-3">
+  <li class="nav-item2"><a routerLink="/easyhouse/register" routerLinkActive="active" class="nav-link">Register</a></li>
+    <h2>Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" class="form-control" formControlName="email">
+        <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+          <small class="text-danger">Valid email is required</small>
+        </div>
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" class="form-control" formControlName="password">
+        <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+          <small class="text-danger">Password is required</small>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Login</button>
+      <div *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</div>
+    </form>
+  </div> -->
+  
+  
+  
+  
+  <!------------------- WORKING ------------------>
+  
+  <!-- <form (ngSubmit)="login()" #loginForm="ngForm">
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" [(ngModel)]="email" required>
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" [(ngModel)]="password" required>
+    </div>
+    <button type="submit">Login</button>
+    <div *ngIf="errorMessage">{{ errorMessage }}</div>
+  </form> -->
+  
+  
+  <!-- <div class="col-md-6 offset-md-3">
+    <h2>Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" class="form-control" formControlName="email" placeholder="Enter Email">
+        <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+          <small class="text-danger">Email is required</small>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="userPassword">Password</label>
+        <input type="password" id="userPassword" class="form-control" formControlName="userPassword" placeholder="Enter Password">
+        <div *ngIf="loginForm.get('userPassword')?.invalid && loginForm.get('userPassword')?.touched">
+          <small class="text-danger">Password is required</small>
+        </div>
+      </div>
+  
+      <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Login</button>
+      
+    </form>
+  </div> -->
+  
+  
+  
+  
+  
+  <!-- BASIC WORKING -->
+  
+  <!-- <div class="col-md-6 offset-md-3">
+      <h2>Login</h2>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" class="form-control" formControlName="email" placeholder="Enter Email">
+        </div>
+    
+        <div class="form-group">
+          <label for="userPassword">Password</label>
+          <input type="password" id="userPassword" class="form-control" formControlName="userPassword" placeholder="Enter Password">
+        </div>
+    
+        <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Login</button>
+      </form>
+    </div>
+     -->
