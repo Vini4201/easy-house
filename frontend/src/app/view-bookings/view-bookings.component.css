@@ -1,0 +1,54 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 30px;
+  margin-left: 0px; 
+}
+
+.table th, .table td {
+  border: 1px solid #ddd; 
+  padding: 12px; 
+  text-align: left; 
+}
+
+.table th {
+  background-color: #adb5bd; 
+  color: #333; 
+  font-weight: bold; 
+}
+
+.table tr {
+  background-color: #f8f9fa;
+}
+
+/* .table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.table tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+.table tr:hover {
+  background-color: #f1f1f1;
+} */
+
+.no-bookings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.no-bookings p {
+  font-size: 30px;
+  text-align: center;
+}
+
+.btn {
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+.ml-2 {
+  margin-left: 10px;
+}

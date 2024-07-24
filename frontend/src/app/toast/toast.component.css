@@ -1,0 +1,19 @@
+.toast-container {
+  position: fixed;
+  top: calc(100% + 1rem);;
+  right: 1rem;
+  z-index: 1500;
+  display: flex;
+}
+.toast + .toast {
+  margin-top: 3rem;
+}
+.btn-close {
+
+  background-color: transparent;
+  color: #fff;
+  opacity: 1;
+}
+.toast-header{
+  background-color: transparent;
+}

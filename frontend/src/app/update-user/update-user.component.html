@@ -1,0 +1,87 @@
+<div class="content">
+  <div class="form-container">
+    <div class="form-content">
+      <form (ngSubmit)="onSubmit()">
+
+        <div class="form-group">
+          <label for="firstName">First Name:</label>
+          <input type="text" id="firstName" class="form-control" [(ngModel)]="user.firstName" name="firstName">
+        </div>
+    
+        <div class="form-group">
+          <label for="lastName">Last Name:</label>
+          <input type="text" id="lastName" class="form-control" [(ngModel)]="user.lastName" name="lastName">
+        </div>
+    
+        <div class="form-group">
+          <label for="userName">Username:</label>
+          <input type="text" id="userName" class="form-control" [(ngModel)]="user.userName" name="userName">
+        </div>
+    
+        <div class="form-group">
+          <label for="phone">Phone:</label>
+          <input type="text" id="phone" class="form-control" [(ngModel)]="user.phone" name="phone">
+        </div>
+    
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" class="form-control" [(ngModel)]="user.email" name="email">
+        </div>
+    
+        <div class="form-group">
+          <label for="address">Address:</label>
+          <textarea id="address" class="form-control" [(ngModel)]="user.address" name="address"></textarea>
+        </div>
+    
+        <div class="button-container">
+          <button type="submit" class="btn btn-success">Submit</button>
+          <button type="button" class="btn btn-warning reset-btn" (click)="onReset()">Reset</button>
+        </div>
+
+      </form>
+    </div>
+    
+    <div class="design-element">
+      <img class="design-img" src="images/UpdateUser.png" />
+      <h3 class="form-heading">UPDATE USER</h3>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- <h2>Update User</h2>
+<form (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="firstName">First Name</label>
+    <input type="text" id="firstName" class="form-control" [(ngModel)]="user.firstName" name="firstName">
+  </div>
+
+  <div class="form-group">
+    <label for="lastName">Last Name</label>
+    <input type="text" id="last_name" class="form-control" [(ngModel)]="user.lastName" name="lastName">
+  </div>
+
+  <div class="form-group">
+    <label for="userName">Username</label>
+    <input type="text" id="userName" class="form-control" [(ngModel)]="user.userName" name="userName">
+  </div>
+
+  <div class="form-group">
+    <label for="phone">Phone</label>
+    <input type="text" id="phone" class="form-control" [(ngModel)]="user.phone" name="phone">
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" id="email" class="form-control" [(ngModel)]="user.email" name="email">
+  </div>
+
+  <div class="form-group">
+    <label for="address">Address</label>
+    <textarea id="address" class="form-control" [(ngModel)]="user.address" name="address"></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-success">Submit</button>
+</form> -->

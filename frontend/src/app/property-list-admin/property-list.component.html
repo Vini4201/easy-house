@@ -1,0 +1,63 @@
+<div *ngIf="properties.length > 0">
+<div class="row">
+  <div class="col-md-12">
+    <table class="mt-2 table general-table">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Details</th>
+          <th>Address</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let property of properties">
+          <td class="image-cell">
+            <img [src]="property.propertyImageUrl" alt="Property Image" class="property-image">
+          </td>
+          <td class="details-cell">
+            <ul>
+              <!-- <li>Seller Id: {{ property.sellerId }}</li> -->
+              <li>Name: {{ property.propertyName }}</li>
+              <li>Type: {{ property.propertyType }}</li>
+              <li>Area: {{ property.propertyArea }}</li>
+              <li>Cost: {{ property.propertyCost }}</li>
+            </ul>
+          </td>
+          <td class="address-cell">
+            <ul>
+              <li>Address: {{ property.propertyAddress }}</li>
+              <li>Description: {{ property.propertyDescription }}</li>
+              <li class="property-status" [ngClass]="getStatusClass(property.propertyStatus)">Status: {{ property.propertyStatus }}</li>
+              <!-- <li>Status: {{ property.propertyStatus }}</li> -->
+              <li>Date of Publish: {{ property.propertyPostDate }}</li>
+            </ul>
+          </td>
+          <td class="text-center">
+            <div class="d-flex justify-content-center"> 
+          <!-- button with event handler -->
+          <!-- <button (click) = "updateProperty(property.id)" class="btn btn-info"> Update </button> -->
+          <button *ngIf="property.id" (click)="propertyDetails(property.id!)" class="btn btn-outline-primary btn-sm ">View</button>
+          <button *ngIf="property.propertyStatus === 'PENDING'" (click)="approveProperty(property.id)" class="btn btn-outline-success">Approve</button>
+          <button *ngIf="property.propertyStatus === 'PENDING'" (click)="rejectProperty(property.id)" class="btn btn-outline-warning" style="margin-left: 10px;">Reject</button>
+          <button (click) = "deleteProperty(property.id)" class="btn btn-outline-danger" style="margin-left: 10px;"> Delete </button>
+          </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+
+<div *ngIf="properties.length === 0">
+  <p>No property have been added by you yet.</p>
+</div>
+
+<!-- Footer -->
+<footer class="footer mt-auto py-3 bg-light">
+  <div class="container text-center">
+    <span>&copy; 2024 EasyHouse Portal. All rights reserved.</span>
+  </div>
+</footer>
+

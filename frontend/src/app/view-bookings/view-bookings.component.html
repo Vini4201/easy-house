@@ -1,0 +1,87 @@
+<div *ngIf="bookingsWithBuyers.length > 0">
+  <table class="mt-4 table general-table">
+    <thead>
+      <tr class="text-center">
+        <th>Property Name</th>
+        <th>Buyer Name</th>
+        <th>Buyer Email</th>
+        <th>Order ID</th>
+        <th>Cost</th>
+        <th>Payment Method</th>
+        <th>Payment Status</th>
+        <th>Buy Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let bookingWithBuyer of bookingsWithBuyers" class="text-center">
+        <td>{{ bookingWithBuyer.booking.propertyName }}</td>
+        <td>{{ bookingWithBuyer.buyer.firstName }} {{ bookingWithBuyer.buyer.lastName }}</td>
+        <td>{{ bookingWithBuyer.buyer.email }}</td>
+        <td><strong>{{ bookingWithBuyer.booking.orderId }}</strong></td>
+        <!-- <td>{{ bookingWithBuyer.booking.property.id }}</td> -->
+        <td>{{ bookingWithBuyer.booking.propertyCost }}</td>
+        <td>{{ bookingWithBuyer.booking.paymentMethod }}</td>
+        <td><span class="payment-status">{{ bookingWithBuyer.booking.paymentStatus }}</span></td>
+        <td>{{ bookingWithBuyer.booking.propertyBuyDate }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div *ngIf="bookingsWithBuyers.length === 0" class="no-items">
+  <p>No bookings found for your properties.</p>
+</div>
+
+
+
+<!------------------ WORKING WITHOUT BUYER NAME ----------------->
+<!-- <div *ngIf="bookings.length > 0"> -->
+  <!-- <h2>Bookings for Your Properties</h2> -->
+  <!-- <table class="mt-4 table general-table">
+    <thead>
+      <tr class="text-center">
+        <th>Property Name</th>
+        <th>Buyer ID</th>
+        <th>Order ID</th>
+        <th>Property ID</th>
+        <th>Cost</th>
+        <th>Payment Method</th>
+        <th>Payment Status</th>
+        <th>Buy Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let booking of bookings" class="text-center">
+        <td>{{ booking.propertyName }}</td>
+        <td>{{ booking.buyerId }}</td>
+        <td><strong>{{ booking.orderId }}</strong></td>
+        <td>{{ booking.property.id }}</td>
+        <td>{{ booking.propertyCost }}</td>
+        <td>{{ booking.paymentMethod }}</td> -->
+        <!-- <td>{{ booking.paymentStatus }}</td> -->
+        <!-- <td><span class="payment-status">{{ booking.paymentStatus }}</span></td>
+        <td>{{ booking.propertyBuyDate }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div *ngIf="bookings.length === 0" class="no-items">
+  <p>No bookings found for your properties.</p>
+</div> -->
+
+
+<!-- <div *ngIf="bookings.length > 0">
+    <h2>Bookings for Your Properties</h2>
+    <div *ngFor="let booking of bookings">
+      <h3>{{ booking.propertyName }}</h3>
+      <p>Buyer ID: {{ booking.buyerId }}</p>
+      <p>Order ID: {{ booking.orderId }}</p>
+      <p>Property ID: {{ booking.property.id }}</p>
+      <p>Cost: {{ booking.propertyCost }}</p>
+      <p>Payment Method: {{ booking.paymentMethod }}</p>
+      <p>Payment Status: {{ booking.paymentStatus }}</p>
+      <p>Buy Date: {{ booking.propertyBuyDate }}</p>
+    </div>
+  </div>
+  <div *ngIf="bookings.length === 0">
+    <p>No bookings found for your properties.</p>
+  </div> -->

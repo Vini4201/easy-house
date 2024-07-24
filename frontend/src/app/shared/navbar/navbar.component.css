@@ -1,0 +1,11 @@
+.navbar-bg {
+    background-color: rgba(16, 24, 32);
+    width: 100%;
+    position: relative;
+  }
+  .navbar-bg a,
+  .navbar-bg a:hover{
+    color: #FFFFFF;
+  
+  }
+  

@@ -1,0 +1,232 @@
+
+<!-- <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+  <div class="container">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a routerLink="properties" routerLinkActive="active" class="nav-link">Property List</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="add-property" routerLinkActive="active" class="nav-link">Add Property</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="view-bookings" routerLinkActive="active" class="nav-link">View Bookings</a>
+      </li>
+    </ul>
+  </div>
+  <div class="justify-content-end">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="btn btn-danger my-2 my-sm-0" (click)="logout()">Logout</a>
+      </li>
+    </ul>
+  </div>
+  </div>
+</nav> -->
+
+
+<!-- <div style="margin-top: 30px;"></div> -->
+
+<!-- <div class="container"> -->
+  <!-- <app-property-list></app-property-list> -->
+   <!-- <router-outlet></router-outlet>
+  </div> -->
+
+
+<!-- <h2 class="heading">Property List</h2> -->
+
+<!-- <h2> Property List </h2> -->
+
+<div *ngIf="properties.length > 0">
+<div class="row">
+  <div class="col-md-12">
+    <table class="mt-2 table general-table mb-4">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Details</th>
+          <th>Address</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let property of properties">
+          <td class="image-cell">
+            <img [src]="property.propertyImageUrl" alt="Property Image" class="image">
+          </td>
+          <td class="details-cell">
+            <ul>
+              <!-- <li>Seller Id: {{ property.sellerId }}</li> -->
+              <li>Name: {{ property.propertyName }}</li>
+              <li>Type: {{ property.propertyType }}</li>
+              <li>Area: {{ property.propertyArea }}</li>
+              <li>Cost: {{ property.propertyCost }}</li>
+            </ul>
+          </td>
+          <td class="address-cell">
+            <ul>
+              <li>Address: {{ property.propertyAddress }}</li>
+              <li>Description: {{ property.propertyDescription }}</li>
+              <li class="property-status" [ngClass]="getStatusClass(property.propertyStatus || '')">Status: {{ property.propertyStatus }}</li>
+              <!-- <li>Status: {{ property.propertyStatus }}</li> -->
+              <li>Date of Publish: {{ property.propertyPostDate }}</li>
+            </ul>
+          </td>
+          <td class="text-center">
+            <div class="d-flex justify-content-center">
+          <!-- button with event handler -->
+          <!-- <button (click) = "updateProperty(property.id)" class="btn btn-info"> Update </button> -->
+          <button 
+          (click)="updateProperty(property.id)" 
+          class="btn btn-outline-warning" 
+          [disabled]="property.propertyStatus === 'PENDING' || property.propertyStatus === 'REJECTED'">
+          Update
+        </button>
+          <button (click) = "deleteProperty(property.id)" class="btn btn-outline-danger" style="margin-left: 10px;"> Delete </button>
+          </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+
+<div *ngIf="properties.length === 0" class="no-properties">
+  <p>No property have been added by you yet.</p>
+</div>
+
+
+<!-- Footer -->
+<footer class="footer mt-auto py-3 bg-light">
+  <div class="container text-center">
+    <span>&copy; 2024 EasyHouse Portal. All rights reserved.</span>
+  </div>
+</footer>
+
+
+
+<!-- <h2>Property List</h2>
+
+<div class="row">
+  <div class="col-md-4">
+    <h3>Image</h3>
+    <div *ngFor="let property of properties">
+      <img [src]="property.propertyImageUrl" alt="Property Image" class="property-image">
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <h3>Details</h3>
+    <table class="table table-striped property-table">
+      <thead>
+        <tr>
+          <th>Seller ID</th>
+          <th>Property Name</th>
+          <th>Property Type</th>
+          <th>Property Area</th>
+          <th>Property Cost</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let property of properties">
+          <td>{{ property.sellerId }}</td>
+          <td>{{ property.propertyName }}</td>
+          <td>{{ property.propertyType }}</td>
+          <td>{{ property.propertyArea }}</td>
+          <td>{{ property.propertyCost }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col-md-4">
+    <h3>Address</h3>
+    <table class="table table-striped property-table">
+      <thead>
+        <tr>
+          <th>Address</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th>Date of Publish</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let property of properties">
+          <td>{{ property.propertyAddress }}</td>
+          <td>{{ property.propertyDescription }}</td>
+          <td>{{ property.propertyStatus }}</td>
+          <td>{{ property.propertyPostDate }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div> -->
+
+
+
+<!-- <h2>Property List</h2>
+
+<div class="row">
+  <div class="col-md-4">
+    <h3>Image</h3>
+    
+    <div *ngFor="let property of properties">
+      <img [src]="property.PropertyImageUrl" alt="Property Image">
+      {{ logProperty(property) }} 
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <h3>Details</h3>
+    
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Seller ID</th>
+          <th>Property Name</th>
+          <th>Property Type</th>
+          <th>Property Area</th>
+          <th>Property Cost</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let property of properties">
+          {{ logProperty(property) }} 
+          <td>{{ property.SellerId }}</td>
+          <td>{{ property.PropertyName }}</td>
+          <td>{{ property.PropertyType }}</td>
+          <td>{{ property.PropertyArea }}</td>
+          <td>{{ property.PropertyCost }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col-md-4">
+    <h3>Address</h3>
+    
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Address</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th>Date of Publish</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let property of properties">
+          {{ logProperty(property) }} 
+          <td>{{ property.propertyAddress }}</td>
+          <td>{{ property.PropertyDescription }}</td>
+          <td>{{ property.PropertyStatus }}</td>
+          <td>{{ property.PropertyPostDate }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div> -->
